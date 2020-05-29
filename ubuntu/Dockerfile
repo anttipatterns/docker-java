@@ -9,4 +9,6 @@ RUN ln -sf /usr/share/zoneinfo/UTC /etc/localtime && \
 
 # Official binary for 20.10 (groovy) not yet available, please update later
 RUN add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable" && \
-    apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends docker-ce-cli
+    apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends docker-ce-cli && \
+    apt-get clean && rm -rf /var/lib/apt/lists/*
+
